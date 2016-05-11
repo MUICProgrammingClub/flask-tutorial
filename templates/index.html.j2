@@ -1,4 +1,10 @@
 {% extends "base.html.j2" %}
 {% block content %}
-<h1>This is index page</h1>
+  <div class="text-center">
+    <h1>This is index page</h1>
+    {% if firstname and lastname %}
+      <h3>Firstname: {{firstname}}</h3>
+      <h3>Lastname: {{lastname}}</h3>
+    {% endif %}
+  </div>
 {% endblock %}
