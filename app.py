@@ -57,5 +57,12 @@ def random_restaurant():
                             header_active=header_active,
                             now=now)
 
+@app.route('/random_extra')
+def random_extra():
+    all_restaurant = arr
+    return render_template("random_extra.html.j2",
+                            header_active=header_active,
+                            all_restaurant = all_restaurant)
+
 if __name__ == '__main__':
     app.run(debug=True)

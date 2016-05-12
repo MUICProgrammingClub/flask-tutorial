@@ -1,0 +1,59 @@
+{% extends "base.html.j2" %}
+{% block content %}
+<div class="text-center jumbotron">
+	<button id="rand_but" class="btn btn-md btn-success"> Start Random </button>
+    <button id="stop_but" class="btn btn-md btn-danger"> Stop Random </button>
+    <h1>Randoming Restaurant</h1>
+    <h2 id="rest_text">Randoming!!!</h2>
+  </div>	
+
+{% endblock %}
+
+{% block js %}
+
+<script type="text/javascript">
+	var start_rand;
+	var all_rest = {{all_restaurant}};
+
+
+	function getRandomInt(min, max) {
+    	return Math.floor(Math.random() * (max - min + 1)) + min;
+	}
+
+	function setText() {
+		$("#rest_text").text(all_rest[getRandomInt(0, all_rest.length)]);
+	}
+
+	function createWorker(fn){
+    	return {
+    		start: function(){
+    			if(this.worker === null){
+    				this.worker = setInterval(fn, 50)
+    			}
+    		},
+    		stop: function(){
+    			if(this.worker !== null){
+	    			clearInterval(this.worker)
+	    			this.worker = null
+    			}
+    		},
+    		worker: null
+    	}
+    }
+
+	$(document).ready(function(){
+		var worker = createWorker(setText)
+	    
+	    $("#rand_but").click(function(){
+	       worker.start()
+	       //start_rand = setInterval(setText, 0.25);
+	    });
+
+	    $("#stop_but").click(function(){
+	    	worker.stop()
+	    	// clearInterval(start_rand);
+	    });
+	});
+</script>
+
+{% endblock %}
