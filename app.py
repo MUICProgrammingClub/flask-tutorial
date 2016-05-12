@@ -23,19 +23,22 @@ def hello():
 def about():
     return render_template("about.html.j2",
                             current_page="about",
-                            header_active=header_active)
+                            header_active=header_active,
+                            title="About")
 
 @app.route("/contact")
 def contact():
     return render_template("contact.html.j2",
                             current_page="contact",
-                            header_active=header_active)
+                            header_active=header_active,
+                            title="Contact")
 
 @app.route("/addname")
 def add_name():
     return render_template("addname.html.j2",
                             current_page="addname",
-                            header_active=header_active)
+                            header_active=header_active,
+                            title="Add name")
 
 @app.route("/create", methods=["POST"])
 def create_name():
@@ -55,7 +58,8 @@ def random_restaurant():
     return render_template("random.html.j2",
                             restaurant=restaurant,
                             header_active=header_active,
-                            now=now)
+                            now=now,
+                            title="Random Restaurants")
 
 if __name__ == '__main__':
     app.run(debug=True)
