@@ -3,7 +3,11 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=devise-width">
-    <title>Flask Tutorial</title>
+    {% if title %}
+      <title>{{title}} | Flask Tutorial</title>
+    {% else %}
+      <title>Flask Tutorial</title>
+    {% endif %}
     <link rel="stylesheet" href="static/css/bootstrap.min.css">
     <link rel="stylesheet" href="static/css/jumbotron-narrow.css">
   </head>
