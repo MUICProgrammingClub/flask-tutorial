@@ -1,10 +1,11 @@
 {% extends "base.html.j2" %}
 {% block content %}
-  <div class="text-center">
+  {% if firstname and lastname %}
+    <h3>Hello {{firstname}} {{lastname}}</h3>
+  {% endif %}
+  <div class="jumbotron text-center">
     <h1>This is index page</h1>
-    {% if firstname and lastname %}
-      <h3>Firstname: {{firstname}}</h3>
-      <h3>Lastname: {{lastname}}</h3>
-    {% endif %}
+    <p class="lead">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+    <p><a class="btn btn-lg btn-success" href="#" role="button">Random Restaurant</a></p>
   </div>
 {% endblock %}

@@ -1,0 +1,13 @@
+<div class="container">
+  <div class="header clearfix">
+    <nav>
+      <ul class="nav nav-pills pull-right">
+        <li role="presentation" class="{{header_active('home', current_page)}}"><a href="{{url_for('index')}}">Home</a></li>
+        <li role="presentation" class="{{header_active('about', current_page)}}"><a href="{{url_for('about')}}">About</a></li>
+        <li role="presentation" class="{{header_active('contact', current_page)}}"><a href="{{url_for('contact')}}">Contact</a></li>
+        <li role="presentation" class="{{header_active('addname', current_page)}}"><a href="{{url_for('add_name')}}">Add name</a></li>
+      </ul>
+    </nav>
+    <h3 class="text-muted">Flask Tutorial</h3>
+  </div>
+</div>
