@@ -1,7 +1,12 @@
 from flask import Flask, request, redirect, url_for, render_template, flash, jsonify
 from helpers import header_active
+import random
+import datetime
 
 app = Flask(__name__)
+
+restaurants = open("restaurants", "r")
+arr = restaurants.readlines()
 
 @app.route("/")
 @app.route("/index")
@@ -42,6 +47,15 @@ def create_name():
                     lastname=request.form['lastname'],
                     current_page="home",
                     header_active=header_active)
+
+@app.route('/random')
+def random_restaurant():
+    restaurant = random.choice(arr)
+    now = datetime.datetime.now().ctime()
+    return render_template("random.html.j2",
+                            restaurant=restaurant,
+                            header_active=header_active,
+                            now=now)
 
 if __name__ == '__main__':
     app.run(debug=True)

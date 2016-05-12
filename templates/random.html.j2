@@ -1,0 +1,9 @@
+{% extends "base.html.j2" %}
+{% block content %}
+  <div class="text-center jumbotron">
+    <h2>The restaurant you get is</h2>
+    <h1>{{restaurant}}</h1>
+    <p>Generated at: {{now}}</p>
+    <a href="{{url_for('random_restaurant')}}" class="btn btn-lg btn-success">Random Restaurant Again</a>
+  </div>
+{% endblock %}
